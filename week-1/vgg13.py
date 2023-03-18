@@ -26,6 +26,7 @@ class VGG13(nn.Module):
             nn.ReLU(),
             nn.Conv2d(256, 256, kernel_size=3, stride=1, padding=1, bias=False),
             nn.ReLU(),
+            
             nn.MaxPool2d(kernel_size=2, stride=2, padding=0))
         # input: 56x56x128 output: 28x28x256
         
@@ -64,4 +65,5 @@ class VGG13(nn.Module):
         x = self.conv5(x)
         x = x.view(x.size(0), -1)
         x = self.fc(x)
+        
         return x
